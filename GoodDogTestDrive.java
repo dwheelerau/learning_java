@@ -1,0 +1,10 @@
+class GoodDogTestDrive {
+    public static void main (String[] args) {
+        GoodDog one = new GoodDog();
+        one.setSize(70);
+        GoodDog two = new GoodDog();
+        two.setSize(10);
+        one.bark();
+        two.bark();
+    }
+}

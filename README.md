@@ -58,6 +58,31 @@ a reference too a Dog, and not a Dog object (these are created elsewhere) ie
 and then to add a Dog to teh array `myDogs[0] = new Dog();`.  
 
 
+### Chapter 4  
 
- 
+State effects behavour, behaviour affects state. Method make use of instance
+variables so that a instance of an object can behave in a specific kind of way.  
+
+We can pass things to methods.  **A method uses parameters. A caller passes
+arguments**.  
+
+They have the following syntax: `void bark(int numOfBarks) {//do something}`.  
+Likewise a method can return with the following syntax: `int giveSecret() {
+return 42;}`. When we use this method we would: `int theSecret =
+life.giveSecret();`. Note that the reference varibale *type* and the return
+type of the method are match.  
+
+#### Getters and setters (Accessors and Mutators)  
+A *setters* job is to set an instance varibale, and a *getters* job is to
+return that varible. This relates to encapsulation, that is not exposing your
+data.  In otherwords we should not be able to do `Dog.name = "fido";`. By
+forcing the programer to use a setter method we can control the changes that
+are allowed to the instance variable. What we aim to do is make all instance
+varibale *private* and use *public* getters and setters.  
+
+Instance variables are declared inside a class but not whitn a method. Local
+variables are declared within a method, and they must be initilized before they
+are used  (these won't compile).  
+
+
 
