@@ -2,8 +2,8 @@
 
 Each chapter is a branch, with c1 -chapter 1 etc.  
 
-To install the jvc use the following:  
-`apt-get install XXX`  
+To install the jdk use the following:  
+`apt-get install default-jdk`  
 
 To compile:  
 `javac MyFile.java`  
