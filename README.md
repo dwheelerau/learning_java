@@ -84,5 +84,59 @@ Instance variables are declared inside a class but not whitn a method. Local
 variables are declared within a method, and they must be initilized before they
 are used  (these won't compile).  
 
+### Inheritance  
+public class Child extends Parent {}  
 
+#### IsA and HasA  
+Triangle IsA Shape  
+Cat IsA Feline  
+Tub ~~IsA~~ Bathroom  
+
+If IsA works then it makes sense to inherit from a parent. Note that the IsA
+only works in one direction.  Think of IsA relationships as more specific types
+of an object, a cat is a more specific type of feline.    
+In contrast:
+Bathroom HasA Tub  
+As the HasA works in this case then Bathroom has a reference to a Tub instance
+var, but Bathroom does not extend Tub and *visa versa*.  A batheroom or a tub
+are not more specilised versions of each other.   
+
+`class Cat extends Feline {}`  
+`class Bathroom {
+    Tub tub = new Tub();
+}`
+
+If members are marked private they are not inherited.
+
+#### The contract  
+All subclasses of a superclass inherit methods from the same place, in
+otherword all the members of the inheritance tree esablish a contract; a
+protocol that all subtypes use.  
+
+#### Polymorphism  
+`Dog fido = new Dog();` 
+# using polymorhphism we can use an Animal reference for a Dog.  
+`Animal fido = new Dog();`  
+ 
+This is useful because an Animal array can hold all subclass objects. You can
+also use this for arguments in methods, so the methods can take a range of
+subobjects of the superclass.  
+
+`
+class Vet {
+public void giveShot(Animal a) {
+    //do something}
+}
+Vet v = new Vet();
+Dog d = new Dog();
+Hippo h = new Hippo();
+v.giveShot(d);
+v.giveShot(h); 
+
+`
+
+What this means is that if you write a class using high level types then you
+can make use of these methods simply by inheriting from the high level class.  
+
+pg189
 
