@@ -123,15 +123,15 @@ also use this for arguments in methods, so the methods can take a range of
 subobjects of the superclass.  
 
 `
-class Vet {
-public void giveShot(Animal a) {
-    //do something}
-}`
-`Vet v = new Vet();`
-`Dog d = new Dog();`
-`Hippo h = new Hippo();`
-`v.giveShot(d);`
-`v.giveShot(h);` 
+class Vet {  
+public void giveShot(Animal a) {  
+    //do something}  
+}`  
+`Vet v = new Vet();`  
+`Dog d = new Dog();`  
+`Hippo h = new Hippo();`  
+`v.giveShot(d);`  
+`v.giveShot(h);`  
 
 
 What this means is that if you write a class using high level types then you
