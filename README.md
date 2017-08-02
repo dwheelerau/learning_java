@@ -113,9 +113,11 @@ All subclasses of a superclass inherit methods from the same place, in
 otherword all the members of the inheritance tree esablish a contract; a
 protocol that all subtypes use.  
 
+A subclass can override a superclass method, but the arguments the method takes and the return type must be the same (or at least compatible), this ensures that the subclass obayes the contract.  The access level must also be compatible, you can't override a superclass method with a private method if the superclass method is public.    
+
 #### Polymorphism  
 `Dog fido = new Dog();` 
-# using polymorhphism we can use an Animal reference for a Dog.  
+#### using polymorhphism we can use an Animal reference for a Dog.  
 `Animal fido = new Dog();`  
  
 This is useful because an Animal array can hold all subclass objects. You can
@@ -137,5 +139,9 @@ public void giveShot(Animal a) {
 What this means is that if you write a class using high level types then you
 can make use of these methods simply by inheriting from the high level class.  
 
-pg189
+### Method overloading
+This is not the same as polymorphism, all it is is providing multiple methods with the same name that take different argument lists. If only the return type changes the compiler will assume you are trying to override a method, and this will probably be illegal due to the return type contract requirment for overriding methods, thus the rule for overloading is that the arguments (what out pass) MUST be different (you can do what-ever to the return type).  
 
+## Serious polymorphism  
+### Interfaces  
+Interfaces are 100% abstract classes. Abstract classes can't be instantiated.  In the case of our animal tree, the animal superclass sets the common protocol for all subclass animals that inherit it. 
