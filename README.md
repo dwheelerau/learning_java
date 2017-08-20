@@ -11,6 +11,155 @@ To compile:
 To run:  
 `java MyFile`  
 
+### Syntax examples and OOP concepts
+#### Ecapsulation  
+Data types (classes) are only modified by their own methods. Other objects use
+interfaces (which act like contracts) to interact with other objects.  
+
+**Getters and setters**  
+```java
+class GoodDog {
+    //private field (ie instance variable/data member of a class)
+    private int size;
+    // getter
+    public int getSize() {
+        return size;
+    }
+    //setter
+    public void setSize(int s) {
+        size = s;
+    }
+}
+
+class GoodDogTester {
+
+    public static void main(String[] args) { //command line params
+        GoodDog fred = new GoodDog();
+        fred.setSize(5);
+        System.out.println(fred.getSize());
+    }
+}
+```
+### Inheritance and polymorphism   
+Use inheritance with great caution and some new languages restrict its usage.  
+
+Animal is a superclass of Mammal. Mammal is a subclass or child of Animal. If
+Mammal inherits from Animal then it inherits all its methods and fields.
+Subclasses can *override* superclass methods, this usually occurs when you want
+to make the method more specific for the subclass. If you override a method
+then you need to stick to the contract, that is the subclass method must return
+the same type and the arguments must be the same, in otherwords to the outside
+world these two methods behave the same.   
+
+```java
+class Animal {
+    String colour;
+
+    public int getColour() {
+        return colour;
+    }
+    //setter
+    public void setColour(int s) {
+        colour = s;
+    }
+    public void makeNoise(String noise) {
+        System.out.println(noise);
+    }
+}
+
+class Mammal extends Animal {
+    // inheritance
+    setColour("red");
+    // override takes same arguments returns same type but more specilised
+    public void makeNoise(String noise) {
+        System.out.println("bark " + noise);
+    }
+}
+
+```
+#### Is-A  
+Use inheritance when the *is-a* rule applies. Unicycle is-a Bike.  Mammal is-a
+Animal.  
+
+#### Has-A  
+Use *composition* when they have *has-a* relationship.  Bike has-a Wheel, a
+bike is composed of [2] wheels.  
+
+#### Polymorphism  
+Using a reference declared as a superclass to access a subclass.  
+
+In the below example, in every place you would expect a Mammal object you can
+use the Hamster; m is still a reference to a Mammal and only has access to
+Mammal methods (think of the remote control being the reference type). The
+example below is a case of *up casting* and this can happen by default. If you
+want to *down cast* you need to explicitly do this (see second example).  
+```java
+// example of up cast
+Hamster h = new Hampster();
+Mammal m = h; // Mammal reference to a Hamster subclass
+
+//example of down cast
+Mammal m = new Mammal();
+Hamster h = (Hamster) m; //cast it to a Hamster
+```
+You can't cast a Dog into a Tree, they need to be part of the same inheritance
+tree.
+
+#### Overloading methods  
+Simple means that you have multiple methods with the same name, but each takes
+a different list of paramaters (the return type can be anything).  The type and
+order of paramaters is how the compiler knows which method to implement. This
+is in contrast to *override* where the paramaters and return type must match
+the superclass method.  
+
+#### Interface and abstract classes  
+Abstract classes should never be *Instantiated* (ie Animal a = new Animal();).
+Abstract classes must be extended, and abstract methods must be overriden. This
+is like a contract again, we can use abstract classes and methods to set up
+interfaces that enforce a certain type of behaviour.  
+
+```java
+// example abstract  
+abstract class Canine extends Animal {
+    public void roam() {}
+}
+// example interface
+public interface Pet {
+    public abstract void beFriendly(); // abstract methods have no body
+    public abstract void play(); // abstract methods have no body
+}
+
+public class Dog extends Canine implements Pet {
+    public abstract void beFriendly(){ //code }// must override  
+    public abstract void play(){//code} // must override
+}
+```
+#### Static methods  
+Used for methods that act like functions, you don't need to Instantiate the
+class to use it.  
+
+```java
+// static method in Math class
+public static int min(int a, int b) {
+    //returns less of a and b
+}
+//call static method using the class name rather than reference variable.  
+Math.min(43,31);
+```
+*Static methods* can only use static variables or ie you can't use instance
+varables or instance methods because the compliler does not know what object
+you are referring too. In the case of a *static varible* its value will be the
+same for all instances of that class. 
+
+```java
+public static int value = 1;
+public static final int names = 1;
+```
+You can also mark methods as *final* as well if you don't want them to be
+overriden. 
+
+## Some notes from the book 
+
 ### Chapter 2  
 
 -  Look for features that all classes have in common and *abstract* these out to
