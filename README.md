@@ -14,7 +14,8 @@ To run:
 ### Syntax examples and OOP concepts
 #### Ecapsulation  
 Data types (classes) are only modified by their own methods. Other objects use
-interfaces (which act like contracts) to interact with other objects.  
+public methods (which act like contracts) to interact with other objects. This
+allows you to control the way the outside world interacts with objects.   
 
 **Getters and setters**  
 ```java
@@ -158,7 +159,7 @@ public static final int names = 1;
 You can also mark methods as *final* as well if you don't want them to be
 overriden. 
 
-## Some notes from the book 
+## Some random notes from the book 
 
 ### Chapter 2  
 
